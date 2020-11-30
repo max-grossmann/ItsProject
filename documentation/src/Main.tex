@@ -1,0 +1,104 @@
+%Dokumentklasse
+
+%draft als optionohne bilder für bessere performance
+%\documentclass[a4paper,12pt,draft]{scrreprt}
+
+\documentclass[a4paper,12pt]{scrreprt}
+
+\usepackage[left= 3cm,right = 3cm, bottom = 5.5cm,top = 8.8cm]{geometry}
+
+%\usepackage[onehalfspacing]{setspace}
+% ============= Packages =============
+
+% Dokumentinformationen
+\usepackage[
+pdftitle={StA\_Web-Development2},
+pdfsubject={},
+pdfauthor={Eric Münch, Max Großmann, Andre Klein, Marvin Jakob, Benjamin Deufel, Denise Fritsch},
+pdfkeywords={},	
+%Links nicht einrahmen per hidelinks
+colorlinks=true,
+linkcolor=black,
+urlcolor=cyan
+]{hyperref}
+
+%nur Text zum prüfen des Umfangs
+
+% Standard Packages
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx, subfig}
+\graphicspath{{img/}}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{placeins}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{mathpazo}
+\usepackage{nameref}
+\usepackage{enumitem}
+%pdf
+\usepackage{pdfpages}
+%Tabelle
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{url}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\renewcommand{\texttt}[1]{%
+	\begingroup
+	\ttfamily
+	\begingroup\lccode`~=`/\lowercase{\endgroup\def~}{/\discretionary{}{}{}}%
+	\begingroup\lccode`~=`[\lowercase{\endgroup\def~}{[\discretionary{}{}{}}%
+	\begingroup\lccode`~=`.\lowercase{\endgroup\def~}{.\discretionary{}{}{}}%
+	\catcode`/=\active\catcode`[=\active\catcode`.=\active
+	\scantokens{#1\noexpand}%
+	\endgroup
+}
+
+
+%kein Abstand bei neuem Kapitel vom Seitenanfang
+%\vspace*{2.3\baselineskip} = ORIGINAL
+\renewcommand*{\chapterheadstartvskip}{\vspace*{1.0\baselineskip}}
+
+%nicht einrücken nach Absatz
+\setlength{\parindent}{0pt}
+
+% ============= Dokument ===================
+
+
+\begin{document}
+	%Seiten ohne Kopf- und Fußzeile sowie Seitenzahl
+	\pagestyle{empty}
+	
+	\pagenumbering{arabic}
+	\include{Deckblatt}
+	
+	
+	%stellt die Seitenabstände ein
+	\newgeometry{left= 3cm,right = 2.5cm, bottom = 3cm,top = 3cm}
+	\cleardoubleoddpage
+	\pagestyle{plain}
+
+	\tableofcontents
+
+	\include{meta/Abbildungsverzeichnis}
+	\include{meta/Tabellenverzeichnis}
+	\include{meta/Auflistungsverzeichnis}
+	\include{meta/Abkürzungsverzeichnis}
+
+	\include{chapters/Einfuehrung}
+	\include{chapters/Hintergrund}
+	\include{chapters/CVE}
+	\include{chapters/VerwandteArbeiten}
+	\include{chapters/Fazit}
+	\include{meta/Literatur}
+	\include{meta/Erklaerung}
+
+%	\nocite{*}
+
+\end{document}

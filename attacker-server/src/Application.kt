@@ -26,7 +26,12 @@ fun Application.module(testing: Boolean = false) {
         }
 
         get("/attack") {
-            val attackSH = getResourceContent("static/attack.sh")
+            var attackSH = getResourceContent("static/attack.sh")
+            attackSH = attackSH.replace("\r\n", "\n")
+                    .replace("\r", "\n")
+
+            println(attackSH)
+
             call.respondText(attackSH)
         }
 
