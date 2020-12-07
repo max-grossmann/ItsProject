@@ -12,12 +12,13 @@
 
 % Dokumentinformationen
 \usepackage[
-pdftitle={StA\_Web-Development2},
+pdftitle={StA\_ITS},
 pdfsubject={},
-pdfauthor={Eric Münch, Max Großmann, Andre Klein, Marvin Jakob, Benjamin Deufel, Denise Fritsch},
-pdfkeywords={},	
+pdfauthor={Max Großmann, Andre Klein},
+pdfkeywords={},
 %Links nicht einrahmen per hidelinks
 colorlinks=true,
+citecolor=blue,
 linkcolor=black,
 urlcolor=cyan
 ]{hyperref}
@@ -49,16 +50,6 @@ urlcolor=cyan
 \usepackage{url}
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
-\renewcommand{\texttt}[1]{%
-	\begingroup
-	\ttfamily
-	\begingroup\lccode`~=`/\lowercase{\endgroup\def~}{/\discretionary{}{}{}}%
-	\begingroup\lccode`~=`[\lowercase{\endgroup\def~}{[\discretionary{}{}{}}%
-	\begingroup\lccode`~=`.\lowercase{\endgroup\def~}{.\discretionary{}{}{}}%
-	\catcode`/=\active\catcode`[=\active\catcode`.=\active
-	\scantokens{#1\noexpand}%
-	\endgroup
-}
 
 
 %kein Abstand bei neuem Kapitel vom Seitenanfang
@@ -85,6 +76,7 @@ urlcolor=cyan
 	\pagestyle{plain}
 
 	\tableofcontents
+	\nocite{*}
 
 	\include{meta/Abbildungsverzeichnis}
 	\include{meta/Tabellenverzeichnis}
@@ -98,6 +90,11 @@ urlcolor=cyan
 	\include{meta/Literatur}
 	\include{meta/Erklaerung}
 
-%	\nocite{*}
+	\clearpage
+	\label{sec:quellen}
+	\renewcommand{\bibname}{Quellenverzeichnis}
+	\bibliographystyle{unsrtdin}
+	\bibliography{meta/Literatur}
+	\addcontentsline{toc}{chapter}{Quellenverzeichnis}
 
 \end{document}
