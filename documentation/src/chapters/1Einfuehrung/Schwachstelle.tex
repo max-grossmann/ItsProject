@@ -1,0 +1,14 @@
+\section{Schwachstelle}\label{sec:schwachstelle}
+
+Die in dieser Studienarbeit behandelte Schwachstelle ist eine dieser “Remote-Code-Execution”-Schwachstellen.\\
+
+Die CVE-2016-3714 beschreibt die Möglichkeit, mittels eines mit Shell-Befehlen präparierten Bildes, fremden Code auf dem angegriffenen Rechner auszuführen.\\
+
+Diese Sicherheitslücke ist so bekannt, das sie inzwischen unter dem Namen “ImageTragick” bekannt ist.\\
+
+ImageTragick hat den höchsten CVSS-Score von 10, was vor allem an der einfachen Durchführung des Angriffs und der möglichen weitreichenden Beeinflussung des angegriffenen Systems liegt.\\
+Das präparierte Bild ist mit drei Codezeilen geschrieben und muss nur zum Beispiel an den anzugreifenden Webserver geschickt werden.\\
+Der Angreifer kann über die im Bild integrierten Shell-Befehle sämtliche Befehle auf User-Recht-Level ausführen.\\
+
+Betroffen von dieser Schwachstelle sind die ImageMagick-Versionen vor 6.9.3-10 sowie Versionen 7.x vor 7.0.1-1.\\
+Gerade auf älteren Systemen, die nicht regelmäßig gewartet oder geupdatet werden, besteht eine realistische Chance, dass eine der betroffenen ImageMagick-Versionen noch läuft.\\

@@ -1,0 +1,19 @@
+\subsection{Delegates}\label{subsec:delegates}
+
+ImageMagick unterstützt das Bearbeiten von Bildern mit Hilfe diverser Quellen und Formaten.\\
+Diese sind als “Delegates” implementiert und dadurch austauschbar.\\
+
+Nativ wird ImageMagick mit drei verschiedenen Arten von Delegates ausgeliefert, die sich durch die Angabe des Eingabe- beziehungsweise Ausgabeformats unterscheiden:
+\begin{itemize}
+    \item Translatoren spezifizieren das Eingabe- und Ausgabeformat.
+    \item Dekoder spezifizieren nur das Eingabeformat.\\
+    Das Ausgabeformat wird automatisch erkannt.
+    \item Enkoder spezifizieren nur das Ausgabeformat.\\
+    Das Eingabeformat wird automatisch erkannt.
+\end{itemize}
+
+Innerhalb der Delegates werden dann “system()”-Aufrufe verwendet, um die Arbeit an die Shell weiterzuleiten.\\
+
+In der Datei “delegates.xml” findet das Mapping zwischen Delegate und spezifischem Shell-Befehl statt.\\
+
+[Bild bencode.net delegates]

@@ -29,8 +29,8 @@ urlcolor=cyan
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{graphicx, subfig}
-\graphicspath{{img/}}
+\usepackage{graphicx}
+\graphicspath{{./img/}}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
 \usepackage{color}
@@ -48,6 +48,8 @@ urlcolor=cyan
 \usepackage{array}
 \usepackage{makecell}
 \usepackage{url}
+\usepackage[rightcaption]{sidecap}
+
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 
@@ -94,7 +96,7 @@ urlcolor=cyan
 	\label{sec:quellen}
 	\renewcommand{\bibname}{Quellenverzeichnis}
 	\bibliographystyle{unsrtdin}
-	\bibliography{meta/Literatur}
+	\bibliography{Literatur}
 	\addcontentsline{toc}{chapter}{Quellenverzeichnis}
 
 \end{document}
