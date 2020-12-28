@@ -10,18 +10,19 @@ Außerdem ist die Version, die von Ubuntu 16.04 über die Paketquellen ausgelief
 um die Schwachstelle auszunutzen.\\
 
 Zuerst müssen folgende Dependencies installiert werden, um C-Anwendungen kompilieren zu können:
-\begin{verbatim}
+
+\begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Dependencies,label={lst:installdep}]
 apt install make
 apt install gcc
-\end{verbatim}
+\end{lstlisting}
 \vspace{5mm}
 
 Weiter wird nun eine von der Schwachstelle betroffene Imagemagick Version heruntergeladen und entpackt.
-\begin{verbatim}
+\begin{lstlisting}[language=Bash, caption=Imagemgaick Installation: Source Code herunterladen und entpacken,label={lst:installsource}]
 wget https://www.imagemagick.org/download/releases/ImageMagick-6.9.2-10.tar.xz
 tar xvf ImageMagick-6.9.2-10.tar.xz
 cd ImageMagick-6.9.2-10.tar.xz
-\end{verbatim}\\\\
+\end{lstlisting}
 \vspace{5mm}
 
 Als nächstes muss das configure-Script ausgeführt werden.
@@ -30,12 +31,13 @@ Das Configure Script ist unter anderem dafür verantwortlich zu überprüfen,
 ob ein C compiler und alle sonstigen benötigten Abhängigkeiten auf dem System installiert sind
 ~\cite{georgebrocklehurstMagicConfigureMake}.\\\\
 
-\begin{verbatim}
+\begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Configure,label={lst:installconfigure}]
 ./configure
-\end{verbatim}\\\\
+
+\end{lstlisting}
 \vspace{5mm}
 
-
+\newpage
 Für das direkte Ausnutzen der Schwachstelle wird kein JPEG und PNG Support benötigt.
 Allerdings ist es für demonstrationszwecke sinnvoll, auch diese Dateiformate aktiviert zu haben.
 Auch in der PHP Anwendung soll man später die Möglichkeit haben selbst solche Bild-Dateien hochladen zu können,
@@ -45,8 +47,8 @@ Beim betrachten der Configure-Ausgabe, wird ersichtlich,
 dass zwar versucht wird die Delegates für PNG und JPEG zu laden (siehe Option),
 dies aber nicht möglich ist. (Siehe 'no' in 'Value' Spalte)
 
-\begin{verbatim}
-             Option                        Value
+\begin{lstlisting}[language=Text, caption=Imagemagick Installation: Auszug aus Configure-Output,label={lst:installconfigureoutput}]
+Option                        Value
 -------------------------------------------------------
 (...)
 
@@ -56,15 +58,16 @@ JPEG v1           --with-jpeg=yes             no
 (...)
 PNG               --with-png=yes              no
 (...)
-\end{verbatim}\\\\
+\end{lstlisting}
 \vspace{5mm}
 
 Das hat den Hintergrund, dass noch Abhängigkeiten für die expliziten Dateitypen fehlen.\\\\
 
 Will man z.B.\ auch das JPEG installieren können, muss folgendes Paket noch installiert werden~\cite{ImageMagickPNGDelegate}:
-\begin{verbatim}
+
+\begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Delegate Dependencies,label={lst:installdelegatedep}]
 apt install libjpeg-dev
-\end{verbatim}\\
+\end{lstlisting}
 \vspace{5mm}
 
 Führt man nun den Configure-Command erneut aus, steht der Wert in der Value-Spalte auf yes.\\
@@ -73,22 +76,25 @@ In der Regel installiert man die Abhängigkeiten für alle Formate, die Imagemag
 Dies wird möglich, in dem man die Debian Quellpakete
 ~\cite{DateiEtcApt} in der sources-list aktiviert.~\cite{HowInstallImageMagick}\\
 
-\begin{verbatim}
+
+\begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Sources List,label={lst:installsourcelist}]
 vim /etc/apt/sources.list
 deb-src http://de.archive.ubuntu.com/ubuntu/ xenial main restricted
-\end{verbatim}\\\\
+\end{lstlisting}
 \vspace{5mm}
 
+\newpage
 Bevor die Build-Dependencies installiert werden können, müssen noch die Paketquellen geupdatet werden:
-\begin{verbatim}
+
+\begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Imagemagick Build Dependencies,label={lst:installimbuilddeps}]
 apt update
 apt build-dep imagemagick
-\end{verbatim}\\\\
+\end{lstlisting}
 \vspace{5mm}
 
 Führt man nun configure erneut aus, sieht man, dass nun sämtliche Delegates aktiviert werden.
 Darunter auch PNG und JPEG.
-\begin{verbatim}
+\begin{lstlisting}[language=Text, caption=Imagemagick Installation: Auszug Configure Output V2,label={lst:installoutput2}]
 Delegate Library Configuration:
   BZLIB             --with-bzlib=yes            yes
   Autotrace         --with-autotrace=no         no
@@ -119,18 +125,20 @@ Delegate Library Configuration:
   X11               --with-x=                   yes
   XML               --with-xml=yes              yes
   ZLIB              --with-zlib=yes             yes
-\end{verbatim}\\\\
+\end{lstlisting}
 \vspace{5mm}
 
 Um Imagemagick nun zu bauen, muss der make-Befehl aufgerufen werden~\cite{HowInstallImageMagick}.
-\begin{verbatim}
+
+\begin{lstlisting}[language=Bash, caption=Imagemagick Installation: make Befehl,label={lst:installmake}]
 make
-\end{verbatim}
+\end{lstlisting}
 \vspace{5mm}
 
 Abschließend müssen die Imagemagick-Scripte noch installiert werden.
 Dabei werden diese an Orte kopiert, von denen sie global aufgerufen werden können~\cite{HowInstallImageMagick}.
-\begin{verbatim}
+
+\begin{lstlisting}[language=Bash, caption=Imagmagick Installation: make install Befehl,label={lst:installmakeinstall}]
 make install
-\end{verbatim}
+\end{lstlisting}
 \vspace{5mm}
