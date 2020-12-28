@@ -1,0 +1,37 @@
+\section{Andere Arbeiten zu der CVE-2016-3714}\label{sec:arbeiten-zu-der-cve-2016-3714}
+
+\subsection{Oracle Linux Bulletin - April 2016~\cite{OracleLinuxBulletin}}\label{subsec:oracle-linux-bulletin---april-2016}
+
+Der Oracle Linux Bulletin listet alle Sicherheitslücken mit dazugehöriger CVE auf,
+welche aktuell in Oracle Linux existieren.
+Die Liste erscheint gleichzeitig mit dem Security Patch.
+In der Ausgabe von April 2016 ist auch hier behandelte CVE 2016-3714 enthalten.
+
+
+\subsection{OpenSuse Mailing-Liste - Mai 2016~\cite{SecurityannounceSUSESU201612751}}\label{subsec:opensuse-mailing-liste---may-2016}
+
+Per Mailing-List werden Security-Updates für Suse Produkte angekündigt.
+Darunter befindet sich auch die hier beschriebene Sicherheitslücke.
+Suse deaktiviert zusätzlich einige Coder, welche für remote code execution attacks anfällig sind.
+Diese können per Umgebungsvariable wieder aktiviert werden.
+In der Mailingliste werden auch für verschiedene Suse Produkte beschrieben,
+welche Schritte konkret durchgeführt werden müssen, um die Sicherheitslücke zu schließen
+
+
+\subsection{Exploit Database - Erklärung~\cite{ExploitDBErklaerung}}\label{subsec:exploit-database:-erklaerung}
+
+Die Website exploit-db.com sammelt Informationen zu öffentlich zugänglichen exploits und archiviert diese~\cite{ExploitDBFaq}.
+Exploits können außerdem von jeder Person eingereicht werden~\cite{ExploitDbSubmit}.\\
+
+Auch zu der hier vorliegenden CVE ist ein Eintrag in der Exploit-DB vorhanden.
+Es wird beschrieben, wie die Code Execution anhand von dem Imagemagick "convert" durchgeführt werden kann.
+Es wird auch darauf eingegangen, dass angreifender Code in Dateien,
+wie MVG und SVG platziert werden kann und somit die Sicherheitslücke nochmal gefährlicher wird.
+
+
+\subsection{Imagemagick Forum~\cite{ImageMagickSecurityIssue}}\label{subsec:imagemagick-forum}
+
+Die Forum Ankündigung beschriebt,
+dass gewisse Coder (darunter auch HTTPS) angreifbar für Remote Code Execution Attacks sind.
+Es werden außerdem Konfigurationsmöglichkeiten aufgezeigt,
+die die Sicherheit von Imagemagick erhöhen und damit solche Angriffe verhindern.
