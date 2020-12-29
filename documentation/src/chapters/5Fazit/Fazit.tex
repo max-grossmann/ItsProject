@@ -5,7 +5,10 @@ Da der Input nicht sinnvoll überprüft wird, also nicht sicher gestellt wird, d
 
 Die Behebung der Schwachstelle ist ähnlich simpel, wie die Schwachstelle selbst - der Input wird nun gefiltert und die Anführungszeichen, durch die das Ausbrechen aus dem String möglich ist, entfernt.\\
 
-Alternativ wird empfohlen, die Datei config/Policy.xml anzupassen.\\
+Alternativ wird empfohlen, die Magic-Bytes zu überprüfen.\\
+So kann sicher gestellt werden, dass die Datei zumindest schon einmal das richtige Format hat und ein exterm simpler Angriff vermieden werden.\\
+
+Es ist aber auch möglich, die Datei config/Policy.xml anzupassen.\\
 Diese umfasst folgende Einträge:\\
 
 \begin{lstlisting}[firstnumber=47, language=XML, caption=config/Policy.xml Inhalt,label={lst:lstlisting}]
