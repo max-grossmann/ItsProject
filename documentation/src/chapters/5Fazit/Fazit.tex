@@ -1,1 +1,52 @@
 \chapter{Fazit}\label{ch:fazit}
+
+Die Schwachstelle ist prinzipiell sehr simpel.\\
+Da der Input nicht sinnvoll überprüft wird, also nicht sicher gestellt wird, dass zum Beispiel eine .png-Datei auch wirklich nur eine .png-Date ist, ist ein tiefgreifender Angriff auf das System möglich.\\
+
+Die Behebung der Schwachstelle ist ähnlich simpel, wie die Schwachstelle selbst - der Input wird nun gefiltert und die Anführungszeichen, durch die das Ausbrechen aus dem String möglich ist, entfernt.\\
+
+Alternativ wird empfohlen, die Datei config/Policy.xml anzupassen.\\
+Diese umfasst folgende Einträge:\\
+
+\begin{lstlisting}[firstnumber=47, language=XML, caption=config/Policy.xml Inhalt,label={lst:lstlisting}]
+<policymap>
+<!-- <policy domain="resource" name="temporary-path" value="/tmp"/> -->
+<!-- <policy domain="resource" name="memory" value="2GiB"/> -->
+<!-- <policy domain="resource" name="map" value="4GiB"/> -->
+<!-- <policy domain="resource" name="width" value="10MP"/> -->
+<!-- <policy domain="resource" name="height" value="10MP"/> -->
+<!-- <policy domain="resource" name="area" value="1GB"/> -->
+<!-- <policy domain="resource" name="disk" value="16EB"/> -->
+<!-- <policy domain="resource" name="file" value="768"/> -->
+<!-- <policy domain="resource" name="thread" value="4"/> -->
+<!-- <policy domain="resource" name="throttle" value="0"/> -->
+<!-- <policy domain="resource" name="time" value="3600"/> -->
+<!-- <policy domain="system" name="precision" value="6"/> -->
+<policy domain="cache" name="shared-secret" value="passphrase"/>
+</policymap>
+\end{lstlisting}
+\vspace{5mm}
+
+Hier sind standardmäßig keine weiteren Einschränkungen eingetragen, obwohl die verantwortlichen Coder deaktiviert werden könnten:\\
+//Hier Quellenverweis imagetragick!!!
+
+\begin{lstlisting}[language=XML, caption=config/Policy.xml Inhalt,label={lst:lstlisting}]
+<policymap>
+  <policy domain="coder" rights="none" pattern="EPHEMERAL" />
+  <policy domain="coder" rights="none" pattern="URL" />
+  <policy domain="coder" rights="none" pattern="HTTPS" />
+  <policy domain="coder" rights="none" pattern="MVG" />
+  <policy domain="coder" rights="none" pattern="MSL" />
+  <policy domain="coder" rights="none" pattern="TEXT" />
+  <policy domain="coder" rights="none" pattern="SHOW" />
+  <policy domain="coder" rights="none" pattern="WIN" />
+  <policy domain="coder" rights="none" pattern="PLT" />
+</policymap>
+\end{lstlisting}
+\vspace{5mm}
+
+Letzten Endes ist die Schwachstelle nur ein weiterer Hinweis und kann als Aufruf dafür verstanden werden, Computersysteme immer aktuell zu halten.\\
+Werden die Betriebssysteme regelmäßig geupdatet, vor allem wenn der Support ausläuft, lassen sich solche Schwachstellen vermeiden.\\
+Dabei hilft es auch, regelmäßig in Changelogs zu schauen um zu erfahren, ob manuelle Anpassungen in der Software nötig sind, wie zum Beispiel in der Policy.xml.\\
+
+Andernfalls kann ein hilfreiches und einfach zu handhabendes Programm wie ImageMagick sehr schnell zu einem großen Problem werden.
