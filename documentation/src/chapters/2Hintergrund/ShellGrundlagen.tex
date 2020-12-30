@@ -12,12 +12,16 @@ Als ursprüngliche Art und Weise, mit einem Computer zu arbeiten, bietet die She
     \item Externe Server können meistens nur über eine Shell benutzt werden.
 \end{itemize}
 
-Die Shell ist auf Linux und MacOS als Terminal vorinstalliert.
-Auf Windows wird ein separates Programm benötigt.\\
+Die Shell ist auf Linux und MacOS als Bash im Terminal vorinstalliert.
+Auf Windows läuft die Shell als PowerShell. Zur Benutzung von Bash-Kommandos wird ein separates Programm benötigt.\\
+In dieser Arbeit wird auf Linux gearbeitet, also mit Bash.\\
 
 Nach dem Starten des Terminals werden auf Linux Systeminformationen angezeigt und der aktuelle Pfad, in dem die Shell arbeitet.\\
 
-[Bild]\\
+\begin{lstlisting}[language=Bash, caption=Beispiel Bash Start,label={lst:lstlisting}]
+root@vm-its:/home/max# ...
+\end{lstlisting}
+\vspace{5mm}
 
 Nun stehen bestimmte Standardbefehle (mit Ergänzungen) zur Verfügung:
 \begin{itemize}
@@ -26,5 +30,5 @@ Nun stehen bestimmte Standardbefehle (mit Ergänzungen) zur Verfügung:
     \item ALLES, WAS SPÄTER NOCH KOMMT
 \end{itemize}
 
-Um einzelne Befehle verketten zu können, wird in der Shell die Pipe “|” verwendet.\\
+Um einzelne Befehle verketten zu können, wird in der Shell die Pipe "`|"' verwendet.\\
 Dabei wird die Ausgabe des ersten Befehls als Eingabe für den nächsten Befehl verwendet.
