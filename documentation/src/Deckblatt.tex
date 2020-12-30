@@ -1,35 +1,35 @@
-\begin{center}
-	\begin{tabular}{p{\textwidth}}
 
-		\includegraphics[scale=0.75]{img/Logo.jpg}\\
-		
-		\begin{center}
-			\textbf{Studienarbeit über die Schwachstelle CVE-2016-3714}
-		\end{center}
-		
-		\\
 
-		\begin{center}
-			\textbf{Max Großmann (301118) und André Klein (359618)}
-		\end{center}
-		\begin{center}
-			\textbf{Hochschule für angewandte Wissenschaften Hof}
-		\end{center}
+	\begin{center}
 
-		\\
+		\tikz [remember picture, overlay] %
+		\node [shift={(2cm,-2cm)}] at (current page.north west) %
+		[anchor=north west] %
+		{\includegraphics[scale=0.75]{img/Logo.jpg}};
 
-		\begin{center}
-			\textbf{IT-Sicherheit}
-		\end{center}
-		\begin{center}
-			\textbf{Wintersemester 2020}
-		\end{center}
+		\vfill
 
-		\\
+			\LARGE{Studienarbeit über die Schwachstelle \\CVE-2016-3714}
 
-		\begin{center}
-			\textbf{Inhalt/Zusammenfassung...}
-		\end{center}
+		\vfill
 
-	\end{tabular}
+			\large{Max Großmann (301118) und André Klein (359618)\\
+			Hochschule für angewandte Wissenschaften Hof}
+
+		\vfill
+
+			\large{IT-Sicherheit\\
+			Wintersemester 2020/2021}
+
+			\vfill
+\vfill
+			\normalsize{\textbf{Zusammenfassung:}
+\vfill
+			\begin{justify}
+				Die Studienarbeit im Fach IT-Sicherheit befasst sich mit der Schwachstelle CVE-2016-3714 in der Software ImageMagick aus dem Jahr 2016.
+				Diese Schwachstelle erlaubt es, eine Remote-Code-Execution auf dem angegriffenen System auszuführen, bei der durch fehlende Überprüfung des Inputs der Angriffscode in einem bearbeiteten Bild direkt im Terminal ausgeführt werden kann.
+				Aufgrund des großen Marktanteils und der Beliebtheit von ImageMagick als schnelles und einfaches Bildbearbeitungstool ist diese Schwachstelle kritisch und wurde als "`ImageTragick"' bekannt.}
+			\end{justify}
+\vfill
 \end{center}
+
