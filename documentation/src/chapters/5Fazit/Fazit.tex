@@ -1,11 +1,11 @@
 \chapter{Fazit}\label{ch:fazit}
 
-Die Schwachstelle ist prinzipiell sehr simpel.\\
-Da der Input nicht sinnvoll überprüft wird, also nicht sicher gestellt wird, dass zum Beispiel eine .png-Datei auch wirklich nur eine .png-Date ist, ist ein tiefgreifender Angriff auf das System möglich.\\
+Die Schwachstelle ist auf Grund eines einfachen Fehlers entstanden.\\
+Da der Input nicht sinnvoll überprüft wird, also nicht sicher gestellt wird, dass zum Beispiel eine .png-Datei auch wirklich nur eine .png-Datei ist, ist ein tiefgreifender Angriff auf das System möglich.\\
 
-Die Behebung der Schwachstelle ist ähnlich simpel, wie die Schwachstelle selbst - der Input wird nun gefiltert und die Anführungszeichen, durch die das Ausbrechen aus dem String möglich ist, entfernt.\\
+Die Behebung der Schwachstelle ist möglich, indem der Input gefiltert wird und die Anführungszeichen, durch die das Ausbrechen aus dem String möglich ist, entfernt werden.\\
 
-Alternativ wird empfohlen, die Magic-Bytes zu überprüfen.\\
+Alternativ wird empfohlen, die Magic-Bytes zu überprüfen. --> QUELLE!!!\\
 So kann sicher gestellt werden, dass die Datei zumindest schon einmal das richtige Format hat und ein exterm simpler Angriff vermieden werden.\\
 
 Es ist aber auch möglich, die Datei config/Policy.xml anzupassen.\\
