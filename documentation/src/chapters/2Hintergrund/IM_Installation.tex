@@ -3,7 +3,7 @@
 Für die Installation wird ein Linux Server mit Ubuntu 16.04 aufgesetzt.
 Dieser Server wird in diesem und in den folgenden Kapiteln zur Einrichtung benutzt.\\
 
-Imagemagick wird in dem folgenden Kapitel über dessen Source-Code compiliert und installiert.
+ImageMagick wird in dem folgenden Kapitel über dessen Source-Code kompiliert und installiert.
 Dies hat den Vorteil, dass eine explizite Version gewählt werden kann.\\
 
 Außerdem ist die Version, die von Ubuntu 16.04 über die Paketquellen ausgeliefert wird zu neu,
@@ -25,11 +25,11 @@ cd ImageMagick-6.9.2-10.tar.xz
 \end{lstlisting}
 \vspace{5mm}
 
-Als nächstes muss das configure-Script ausgeführt werden.
-Dieses ist im Imagemagick Sourcecode enthalten.
-Das Configure Script ist unter anderem dafür verantwortlich zu überprüfen,
-ob ein C compiler und alle sonstigen benötigten Abhängigkeiten auf dem System installiert sind
-~\cite{georgebrocklehurstMagicConfigureMake}.\\\\
+Als Nächstes muss das configure-Script ausgeführt werden.
+Dieses ist im ImageMagick Sourcecode enthalten.
+Das Configure-Script ist unter anderem dafür verantwortlich zu überprüfen,
+ob ein C-Compiler und alle sonstigen benötigten Abhängigkeiten auf dem System installiert sind
+~\cite{georgebrocklehurstMagicConfigureMake}.\\
 
 \begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Configure,label={lst:installconfigure}]
 ./configure
@@ -40,14 +40,14 @@ ob ein C compiler und alle sonstigen benötigten Abhängigkeiten auf dem System 
 Für das direkte Ausnutzen der Schwachstelle wird kein JPEG und PNG Support benötigt.
 Allerdings ist es für demonstrationszwecke sinnvoll, auch diese Dateiformate aktiviert zu haben.
 Auch in der PHP Anwendung soll man später die Möglichkeit haben selbst solche Bild-Dateien hochladen zu können,
-auf denen dann Imagemagick-Operationen angewendet werden.\\\\
+auf denen dann Imagemagick-Operationen angewendet werden.\\
 
-Beim betrachten der Configure-Ausgabe, wird ersichtlich,
+Beim Betrachten der Configure-Ausgabe, wird ersichtlich,
 dass zwar versucht wird die Delegates für PNG und JPEG zu laden (siehe Option),
 dies aber nicht möglich ist. (Siehe 'no' in 'Value' Spalte)
 
 \begin{lstlisting}[language=Text, caption=Imagemagick Installation: Auszug aus Configure-Output,label={lst:installconfigureoutput}]
-Option                        Value
+              Option                        Value
 -------------------------------------------------------
 (...)
 
@@ -61,6 +61,8 @@ PNG               --with-png=yes              no
 \vspace{5mm}
 
 Das hat den Hintergrund, dass noch Abhängigkeiten für die expliziten Dateitypen fehlen.\\\\
+
+\newpage
 
 Will man z.B.\ auch das JPEG installieren können, muss folgendes Paket noch installiert werden~\cite{ImageMagickPNGDelegate}:
 
@@ -82,7 +84,6 @@ deb-src http://de.archive.ubuntu.com/ubuntu/ xenial main restricted
 \end{lstlisting}
 \vspace{5mm}
 
-\newpage
 Bevor die Build-Dependencies installiert werden können, müssen noch die Paketquellen geupdatet werden:
 
 \begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Imagemagick Build Dependencies,label={lst:installimbuilddeps}]
@@ -90,6 +91,8 @@ apt update
 apt build-dep imagemagick
 \end{lstlisting}
 \vspace{5mm}
+
+\newpage
 
 Führt man nun configure erneut aus, sieht man, dass nun sämtliche Delegates aktiviert werden.
 Darunter auch PNG und JPEG.
