@@ -1,15 +1,15 @@
 \subsection{Installation}\label{subsec:installation}
 
-Für die Installation wird ein Linux Server mit Ubuntu 16.04 aufgesetzt.
-Dieser Server wird in diesem und in den folgenden Kapiteln zur Einrichtung benutzt.\\
+Im folgenden Kapitel wird auf dem Ubuntu 16.04 Server ImageMagick installiert und konfiguriert.
+Diese Installation wird in diesem und in den folgenden Kapiteln zur Ausnutzung verwendet.\\
 
 ImageMagick wird in dem folgenden Kapitel über dessen Source-Code kompiliert und installiert.
 Dies hat den Vorteil, dass eine explizite Version gewählt werden kann.\\
 
 Außerdem ist die Version, die von Ubuntu 16.04 über die Paketquellen ausgeliefert wird zu neu,
-um die Schwachstelle auszunutzen.\\
+um die Schwachstelle auszunutzen. \\
 
-Zuerst müssen folgende Dependencies installiert werden, um C-Anwendungen kompilieren zu können:
+Zuerst müssen folgende Abhängigkeiten installiert werden, um C-Anwendungen kompilieren zu können:
 
 \begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Dependencies,label={lst:installdep}]
 apt install make
@@ -62,14 +62,14 @@ PNG               --with-png=yes              no
 
 Das hat den Hintergrund, dass noch Abhängigkeiten für die expliziten Dateitypen fehlen.\\\\
 
-\newpage
-
 Will man z.B.\ auch das JPEG installieren können, muss folgendes Paket noch installiert werden~\cite{ImageMagickPNGDelegate}:
 
 \begin{lstlisting}[language=Bash, caption=Imagemagick Installation: Delegate Dependencies,label={lst:installdelegatedep}]
 apt install libjpeg-dev
 \end{lstlisting}
 \vspace{5mm}
+
+\newpage
 
 Führt man nun den Configure-Command erneut aus, steht der Wert in der Value-Spalte auf yes.\\
 
@@ -91,8 +91,6 @@ apt update
 apt build-dep imagemagick
 \end{lstlisting}
 \vspace{5mm}
-
-\newpage
 
 Führt man nun configure erneut aus, sieht man, dass nun sämtliche Delegates aktiviert werden.
 Darunter auch PNG und JPEG.
@@ -137,7 +135,7 @@ make
 \end{lstlisting}
 \vspace{5mm}
 
-Abschließend müssen die Imagemagick-Scripte noch installiert werden.
+Abschließend müssen die Imagemagick-Binaries noch installiert werden.
 Dabei werden diese an Orte kopiert, von denen sie global aufgerufen werden können~\cite{HowInstallImageMagick}.
 
 \begin{lstlisting}[language=Bash, caption=Imagmagick Installation: make install Befehl,label={lst:installmakeinstall}]
